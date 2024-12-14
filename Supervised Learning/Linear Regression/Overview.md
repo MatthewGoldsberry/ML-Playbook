@@ -26,10 +26,12 @@ The most simple form of linear regression uses this slope-intercept formula:
 
 $$ y = w_0 + w_1 \times X $$
 
-* y: This is the predicted value (dependent variable) for any X.
+* y: This is the predicted value (dependent variable) for any X, sometimes referred to as the response variable.
 * $w_0$: This is the intercept, the value of y when X is zero (also commonly known as b in the standard slope-intercept formula).
 * $w_1$: This is the slope, the expected change to y as X increases (also commonly known as m in the standard slope-intercept formula).
-* X: This is the value that influences y (independent variable).
+* X: This is the value that influences y (independent variable), sometimes referred to as the explanatory variable.
+
+Sometimes this specific form of linear regression where there is only one dependent variable and independent variable is referred to as "simple linear regression" and instead of $w_0$ and $w_1$ they use $\beta_1$ and $\beta_2$, respectively. Then when there are multiple independent variables it is sometimes referred to as "multiple linear regression". To keep the equations and explanations as consistent and easy to follow as possible, this clashing notation was not used, but it is worth while to be aware of the different ways to refer to linear regression. 
 
 <br><br>
 
