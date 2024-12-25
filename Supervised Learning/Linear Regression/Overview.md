@@ -104,13 +104,13 @@ If you answered yes to most of these questions, then linear regression is likely
 
 <br><br>
 
-## Example 1: A linear relationship
+## Example 1: A simple linear relationship
 
 Consider a [sample dataset](https://people.sc.fsu.edu/~jburkardt/datasets/regression/x01.txt) containing the independent variable, brain weight, and the dependent variable, body weight. In {INSERT FILENAME HERE}, we will provide step-by-step guidance on how to implement and train the model. After training, we can see that it learns the coefficients for the linear equation. The graph below plots all data points and shows the line that the model learned. Pretty cool!
 
 <br><br>
 
-## Example 2: A non-linear (polynomial) relationship
+## Example 2: A multiple independents linear relationship
 
 Now what happens if there are multiple independent variables? Consider a [sample dataset](https://www.kaggle.com/datasets/nehalbirla/vehicle-dataset-from-cardekho) where the independent variables are model name, year, kilometers driven, fuel type, seller type, transmission, and number of owners. The dependent variable is the price the car sold for. In {FILENAME}, we will again provide a step-by-step guide on how to implement and train the model in a way that can take multiple independent variables.
 
