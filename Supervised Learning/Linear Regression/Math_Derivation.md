@@ -44,3 +44,43 @@ Where:
 
 * $\vec{w} = [w_0, w_1, w_2]$
 * $\vec{X} = [X_0, X_1, X_2]$ (where $X_0 = 1$)
+
+This approach simplifies the computation and makes the model more scalable
+
+## The Cost Function
+
+The objective of linear regression is to find the coefficients, $w_0, w_1, ..., w_n$, such that they minimize the error between the observed values and the predicted values. This is achieved by minimizing the cost function. There are a couple of different common cost functions that are used in linear regression each with there own pros and cons. 
+
+**Sum of Squared Errors (SSE)**
+
+This is one of the more common cost functions for linear regression:
+
+$$ SSE = \sum_{i=1}^{m} (y_i - \hat{y}_i)^2 $$
+
+Where:
+* $y_i$ is the actual value of the dependent variable for the ( i )-th observation.
+* $\hat{y}_i$ is the predicted value of the dependent variable for the ( i )-th observation.
+* $m$ is the number of observations.
+
+SSE ensures that the errors are always viewed as positive by squaring the difference between actual and predicted values. This is important because if the errors were both negative and positive, they could cancel each other out, making the error appear smaller than it is.
+
+Pros:
+* Simple to compute and understand.
+* Differentiable, making it suitable for optimization algorithms.
+
+Cons:
+* Sensitive to outliers, as squaring the error means that outliers have a much greater impact on the model's training.
+
+**Mean Squared Error (MSE)**
+
+This is very similar to SSE but takes the mean of the SSE:
+
+$$ MSE = $$
+
+Where:
+* 
+* 
+
+Explanation similar to SSE
+
+2. Mean Absolute Error (MAE)
