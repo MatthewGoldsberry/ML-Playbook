@@ -53,7 +53,7 @@ $$ \vec{y} = \vec{w} \cdot \vec{X} $$
 
 * $\vec{y}$ is the vector of predicted values.
 * $\vec{w}$ is the vector of coefficients (including the intercept).
-* $\vec{X}$ is the vector of independent variables.
+* $\vec{X}$ is the vector of independent variables. When using the vectorized form $X_0$ will equal one, this is necessary to allow $w_0$ in $\vec{w}$ to remain the slope intercept. 
 
 <br><br>
 
