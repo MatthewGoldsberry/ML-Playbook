@@ -62,7 +62,7 @@ Where:
 * $\hat{y}_i$ is the predicted value of the dependent variable for the ( i )-th observation.
 * $m$ is the number of observations.
 
-SSE ensures that the errors are always viewed as positive by squaring the difference between actual and predicted values. This is important because if the errors were both negative and positive, they could cancel each other out, making the error appear smaller than it is.
+SSE squares the differences between actual and predicted values. Squaring ensures that all errors are positive and emphasizes larger errors more than smaller ones. This helps in identifying models that have large deviations from actual values.
 
 Pros:
 * Simple to compute and understand.
@@ -71,16 +71,89 @@ Pros:
 Cons:
 * Sensitive to outliers, as squaring the error means that outliers have a much greater impact on the model's training.
 
+When to Use SSE:
+* When you need a simple and straightforward cost function.
+* When the dataset does not have significant outliers.
+
 **Mean Squared Error (MSE)**
 
 This is very similar to SSE but takes the mean of the SSE:
 
-$$ MSE = $$
+$$ MSE = \frac{1}{m} \sum_{i=1}^{m} (y_i - \hat{y}_i)^2$$
 
 Where:
-* 
-* 
+* $y_i$ is the actual value of the dependent variable for the ( i )-th observation.
+* $\hat{y}_i$ is the predicted value of the dependent variable for the ( i )-th observation.
+* $m$ is the number of observations.
 
-Explanation similar to SSE
+MSE averages the squared errors, providing a normalized measure of error. This makes it easier to compare the performance of models on different datasets or with different numbers of observations.
 
-2. Mean Absolute Error (MAE)
+Pros
+* Simple to compute and understand.
+* Differentiable, making it suitable for optimization algorithms.
+* Provides a normalized measure of error, making it easier to compare across different datasets (because of the division by the number of observations)
+
+Cons
+* Since this builds off of SSE, it still has the problem of being sensitive to outliers.
+
+When to Use MSE:
+* When you need a normalized measure of error.
+* When comparing models across different datasets.
+
+**Mean Absolute Error (MAE)**
+
+Another cost function that is somewhat similar to MSE but using absolute value instead of squaring the error:
+
+$$ MAE = \frac{1}{m} \sum_{i=1}^{m} |y_i - \hat{y}_i| $$
+
+Where
+* $y_i$ is the actual value of the dependent variable for the ( i )-th observation.
+* $\hat{y}_i$ is the predicted value of the dependent variable for the ( i )-th observation.
+* $m$ is the number of observations.
+
+MAE measures the average magnitude of the errors without considering their direction. It is less sensitive to outliers compared to SSE and MSE because it does not square the errors.
+
+Pros:
+* Less sensitive to outliers compared to SSE and MSE.
+* Provides a more interpretable measure of average error.
+
+Cons:
+* Not differentiable at zero, which can complicate optimization.
+
+When to Use MAE:
+* When you need a cost function that is less sensitive to outliers.
+* When interpretability of the average error is important.
+
+**Huber Loss**
+
+This cost function combines the best of the SSE and MAE:
+
+$$
+L_\delta(y, \hat{y}) = 
+\begin{cases} 
+\frac{1}{2}(y - \hat{y})^2 & \text{for } |y - \hat{y}| \leq \delta \\
+\delta |y - \hat{y}| - \frac{1}{2}\delta^2 & \text{otherwise}
+\end{cases}
+$$
+
+Where 
+* $y_i$ is the actual value of the dependent variable for the ( i )-th observation.
+* $\hat{y}_i$ is the predicted value of the dependent variable for the ( i )-th observation
+* $\delta$ is a hyperparameter that determines whether the outlier is an error.
+
+Huber Loss is quadratic for small errors (like SSE) and linear for large errors (like MAE). This makes it robust and differentiable to outliers.
+
+Pros:
+* Robust to outliers while being differentiable.
+* Balances the sensitivity to outliers and the smoothness of the error function.
+
+Cons:
+* Requires tuning the parameter $\delta$.
+
+When to Use Huber Loss:
+* When you need a balance between sensitivity to outliers and smoothness of the error function.
+* When you can afford to tune the parameter $\delta$.
+
+**Which One is Commonly Used?**
+
+SSE is the most commonly used cost function for linear regression because it is simple to computer and differentiable, making it suitable for optimization algorithms like gradient descent. Despite its sensitivity to outliers, its mathematical properties make it a convenient choice for many applications. 
